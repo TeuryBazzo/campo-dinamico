@@ -2,6 +2,7 @@ import 'package:campos_dinamicos/dto/formulario.dart';
 import 'package:campos_dinamicos/widget/DropdownButtonDinamico.dart';
 import 'package:campos_dinamicos/widget/CheckboxDinamico.dart';
 import 'package:campos_dinamicos/widget/TextFieldDinamico.dart';
+import 'package:campos_dinamicos/widget/menuDrawer.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import './data/data.dart';
@@ -125,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
+        drawer: MenuDrawer(),
         body: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.all(16.0),
