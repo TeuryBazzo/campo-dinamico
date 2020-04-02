@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:signature/signature.dart';
+import 'camera-preview.dart';
+import 'package:path/path.dart' as Pa;
+import 'package:path_provider/path_provider.dart';
+import 'dart:async';
+import 'dart:io';
 
 class Assinatura extends StatefulWidget {
   @override
@@ -10,7 +15,7 @@ class Assinatura extends StatefulWidget {
 
 class _Assinatura extends State {
   final SignatureController _controller =
-      SignatureController(penStrokeWidth: 5, penColor: Colors.black);
+      SignatureController(penStrokeWidth: 5, penColor: Colors.red);
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +80,19 @@ class _Assinatura extends State {
                 'Apagar',
                 style: TextStyle(fontSize: 20.0),
               ),
+            ),
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed: () {
+                _salvar();
+              },
+              child: Text(
+                'Salvar',
+                style: TextStyle(fontSize: 20.0),
+              ),
             )
           ],
         ),
@@ -82,8 +100,36 @@ class _Assinatura extends State {
     );
   }
 
-  void _apagar() {
+  void _apagar()
+  {
     _controller.clear();
     setState((){});
+  }
+
+  void _salvar() async
+  {
+    try{
+      var image = await _controller.toPngBytes();
+
+      final path = Pa.join(
+          (await getTemporaryDirectory()).path,
+          '${DateTime.now()}.png',
+        );
+    
+    final buffer = image.buffer;
+    await File(path).writeAsBytes(
+      buffer.asUint8List(image.offsetInBytes, image.lengthInBytes));
+
+     Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PreviewImageScreen(imagePath: path),
+        ),
+      );
+
+    }catch(ex){
+      print(ex);
+    }
+    
   }
 }
