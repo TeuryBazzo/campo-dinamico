@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Formulários Dinâmicos Flutter'),
     );
   }
 }
@@ -114,8 +114,8 @@ class _MyHomePageState extends State<MyHomePage> {
     if (_formularios.length == _currentFormulario + 1) return;
 
     setState(() {
-        this.opacity = 0;
-      });
+      this.opacity = 0;
+    });
 
     Future.delayed(Duration(milliseconds: 300), () {
       setState(() {
