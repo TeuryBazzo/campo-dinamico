@@ -18,7 +18,7 @@ class _Assinatura extends State {
       appBar: AppBar(
 
         title: const Text('Assinatura'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blue,
 
       ),
       body: Container(

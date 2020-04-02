@@ -1,8 +1,8 @@
 import 'package:campos_dinamicos/dto/formulario.dart';
-import 'package:campos_dinamicos/widget/DropdownButtonDinamico.dart';
-import 'package:campos_dinamicos/widget/CheckboxDinamico.dart';
-import 'package:campos_dinamicos/widget/TextFieldDinamico.dart';
-import 'package:campos_dinamicos/widget/menuDrawer.dart';
+import 'package:campos_dinamicos/widget/dropdownButtonDinamico.dart';
+import 'package:campos_dinamicos/widget/checkboxDinamico.dart';
+import 'package:campos_dinamicos/widget/textFieldDinamico.dart';
+import 'package:campos_dinamicos/page/menuDrawer.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import './data/data.dart';

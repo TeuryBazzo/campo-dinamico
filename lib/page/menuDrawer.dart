@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'cameraScreen.dart';
 import 'coordenadas.dart';
-import 'camera.dart';
 import 'assinatura.dart';
 
 class MenuDrawer extends StatelessWidget {
