@@ -62,7 +62,6 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: EdgeInsets.only(top: 18));
     widgets.add(widget);
 
-
     for (var campo in formulario.campos) {
       switch (campo.tipo) {
         case 'TEXT':
@@ -86,7 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
           listDropdownDinamico.add(widget);
           break;
         case 'BIT':
-          widget = CheckboxDinamico(campo.label);
+          if (campo.label == "Outro")
+            widget = CheckboxDinamico(campo.label,
+                TextFieldDinamico(campo.label, TextInputType.text));
+          else
+            widget = CheckboxDinamico(campo.label, null);
+
           widgets.add(widget);
           listCheckboxDinamico.add(widget);
           break;
@@ -108,8 +112,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   _proximoFormulario() {
     if (_formularios.length == _currentFormulario + 1) return;
+
     setState(() {
-      _currentFormulario = _currentFormulario + 1;
+        this.opacity = 0;
+      });
+
+    Future.delayed(Duration(milliseconds: 300), () {
+      setState(() {
+        _currentFormulario = _currentFormulario + 1;
+        this.opacity = 1;
+      });
     });
   }
 
@@ -119,6 +131,8 @@ class _MyHomePageState extends State<MyHomePage> {
       _currentFormulario = _currentFormulario - 1;
     });
   }
+
+  double opacity = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -132,8 +146,12 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.all(16.0),
             child: Column(
               children: <Widget>[
-                Column(
-                  children: _carregarCampos(),
+                AnimatedOpacity(
+                  opacity: opacity,
+                  duration: Duration(milliseconds: 300),
+                  child: Column(
+                    children: _carregarCampos(),
+                  ),
                 ),
                 _botoesFormularios()
               ],

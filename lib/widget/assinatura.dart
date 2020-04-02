@@ -21,8 +21,10 @@ class _Assinatura extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         title: const Text('Assinatura'),
         backgroundColor: Colors.blueGrey,
+
       ),
       body: Container(
         child: SafeArea(
@@ -65,6 +67,7 @@ class _Assinatura extends State {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: [
+
             FlatButton(
               color: Colors.blue,
               textColor: Colors.white,
