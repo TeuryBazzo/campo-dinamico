@@ -1,3 +1,4 @@
+import 'package:campos_dinamicos/page/grid.dart';
 import 'package:flutter/material.dart';
 
 import 'cameraScreen.dart';
@@ -50,6 +51,16 @@ class MenuDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => CameraScreen()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.grid_on),
+            title: Text('Grid'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Grid()),
               );
             },
           ),

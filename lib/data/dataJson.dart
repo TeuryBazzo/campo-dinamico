@@ -1,7 +1,25 @@
-
 class DataJson {
+  String getDataGrid() {
+    return '''[
+    {
+        "id": 0,
+        "Label": "Nome",
+        "Tipo": "TEXTO"
+    },
+    {
+        "id": 1,
+        "Label": "Idade",
+        "Tipo": "TEXTO"
+    },
+    {
+        "id": 2,
+        "Label": "Telefone",
+        "Tipo": "TEXTO"
+    }
+]''';
+  }
 
-  String getData(){
+  String getData() {
     return '''{
 	"Formulario": [
 		{ "FomularioID": 1, "Nome": "Passo 1", "Descricao": "Identificação Pessoal" },
