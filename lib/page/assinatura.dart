@@ -1,6 +1,6 @@
+import 'package:campos_dinamicos/page/previewImageScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:signature/signature.dart';
-import 'camera-preview.dart';
 import 'package:path/path.dart' as Pa;
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';
