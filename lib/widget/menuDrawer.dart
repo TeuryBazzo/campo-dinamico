@@ -16,7 +16,7 @@ class MenuDrawer extends StatelessWidget {
               color: Colors.blue,
             ),
             child: Text(
-              'Drawer Header',
+              'Menu Lateral',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -25,7 +25,7 @@ class MenuDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.pin_drop),
-            title: Text('Localizacao'),
+            title: Text('Localização'),
             onTap: () {
               Navigator.push(
                 context,
@@ -44,7 +44,7 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.edit),
+            leading: Icon(Icons.camera),
             title: Text('Câmera'),
             onTap: () {
               Navigator.push(

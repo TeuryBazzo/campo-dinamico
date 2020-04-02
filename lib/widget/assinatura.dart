@@ -8,7 +8,7 @@ class Assinatura extends StatefulWidget {
   }
 }
 
-class _Assinatura extends State {  
+class _Assinatura extends State {
   final SignatureController _controller =
       SignatureController(penStrokeWidth: 5, penColor: Colors.black);
 
@@ -16,8 +16,10 @@ class _Assinatura extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Camera Flutter'),
-        backgroundColor: Colors.blue,
+
+        title: const Text('Assinatura'),
+        backgroundColor: Colors.blueGrey,
+
       ),
       body: Container(
         child: SafeArea(
@@ -60,16 +62,28 @@ class _Assinatura extends State {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: [
-            FloatingActionButton(
-                child: Text('Apagar'),
-                backgroundColor: Colors.blue,
-                onPressed: () {
-                  _apagar(context);
-                }),            
+
+            FlatButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              padding: EdgeInsets.all(8.0),
+              splashColor: Colors.blueAccent,
+              onPressed: () {
+                _apagar();
+              },
+              child: Text(
+                'Apagar',
+                style: TextStyle(fontSize: 20.0),
+              ),
+            )
           ],
         ),
       ),
     );
   }
-  void _apagar(context) async {}
+
+  void _apagar() {
+    _controller.clear();
+    setState((){});
+  }
 }

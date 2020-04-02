@@ -172,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             color: Colors.blue,
             textColor: Colors.white,
-            child: Text('Formulario anterior'),
+            child: Text('Formulário anterior'),
           ),
         ),
         Expanded(
@@ -183,7 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             color: Colors.blue,
             textColor: Colors.white,
-            child: Text('Proximo Formulario'),
+            child: Text('Próximo Formulario'),
           ),
         ),
       ],

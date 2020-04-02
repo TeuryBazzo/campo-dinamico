@@ -18,7 +18,7 @@ class _HomePageState extends State<Coordenadas> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Location"),
+        title: Text('Localização'),
       ),
       body: Center(
         child: Column(
@@ -27,7 +27,7 @@ class _HomePageState extends State<Coordenadas> {
             if (_currentPosition != null)
               Text(_currentCoordinates + _currentAddress),
             FlatButton(
-              child: Text("Get location"),
+              child: Text("Obter localização"),
               onPressed: () {
                 _getCurrentLocation();
               },
@@ -38,35 +38,32 @@ class _HomePageState extends State<Coordenadas> {
     );
   }
 
-  _getCurrentLocation() {
+  _getCurrentLocation() async {
     geolocator
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
         .then((Position position) {
       setState(() {
-        _currentPosition = position;
+        _currentPosition = position;        
       });
-
-      _getAddressFromLatLng();
+      _getAddressFromLatLng();       
     }).catchError((e) {
       print(e);
-    });
+    });  
+
+    
   }
 
   _getAddressFromLatLng() async {
-    try {
-      List<Placemark> p = await geolocator.placemarkFromCoordinates(
+    List<Placemark> p = await geolocator.placemarkFromCoordinates(
           _currentPosition.latitude, _currentPosition.longitude);
 
-      Placemark place = p[0];
+    Placemark place = p[0];
 
-      setState(() {
-        _currentAddress =
-            "${place.thoroughfare}, ${place.subThoroughfare} - ${place.subLocality}, ${place.postalCode}\n${place.subAdministrativeArea} - ${place.administrativeArea} - ${place.country}";
-        _currentCoordinates =
-            "Latitude: ${_currentPosition.latitude}\nLongitude: ${_currentPosition.longitude}\n";
-      });
-    } catch (e) {
-      print(e);
-    }
+    setState(() {
+      _currentAddress =
+          "${place.thoroughfare}, ${place.subThoroughfare} - ${place.subLocality}, ${place.postalCode}\n${place.subAdministrativeArea} - ${place.administrativeArea} - ${place.country}";
+      _currentCoordinates =
+          "Latitude: ${_currentPosition.latitude}\nLongitude: ${_currentPosition.longitude}\n";
+    });
   }
 }
