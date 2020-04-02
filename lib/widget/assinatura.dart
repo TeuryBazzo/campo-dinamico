@@ -17,7 +17,7 @@ class _Assinatura extends State {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Camera Flutter'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         child: SafeArea(
@@ -62,7 +62,7 @@ class _Assinatura extends State {
           children: [
             FloatingActionButton(
                 child: Text('Apagar'),
-                backgroundColor: Colors.blueGrey,
+                backgroundColor: Colors.blue,
                 onPressed: () {
                   _apagar(context);
                 }),            

@@ -34,10 +34,6 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.format_align_center),
-            title: Text('Formularios'),
-          ),
-          ListTile(
             leading: Icon(Icons.edit),
             title: Text('Assinatura'),
             onTap: () {

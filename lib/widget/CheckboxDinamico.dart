@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 class CheckboxDinamico extends StatefulWidget {
   final String value;
   _CheckboxDinamicoState state;
+  Widget campoFilho;
 
-  CheckboxDinamico(this.value);
+  CheckboxDinamico(this.value, this.campoFilho);
 
   @override
   State<StatefulWidget> createState() {
-    this.state = _CheckboxDinamicoState(this.value);
+    this.state = _CheckboxDinamicoState(this.value, this.campoFilho);
     return this.state;
   }
 }
@@ -16,14 +17,15 @@ class CheckboxDinamico extends StatefulWidget {
 class _CheckboxDinamicoState extends State<CheckboxDinamico> {
   String _label;
   String selected;
+  Widget campoFilho;
 
-  _CheckboxDinamicoState(this._label);
+  _CheckboxDinamicoState(this._label, this.campoFilho);
 
-  Widget _widgetsFilho = Text('');
+  Widget _widgetsFilho = SizedBox.shrink();
 
   @override
   initState() {
-    this.selected = this._label;
+    this.selected = '';
   }
 
   Widget _carregarCampos() {
@@ -44,13 +46,18 @@ class _CheckboxDinamicoState extends State<CheckboxDinamico> {
     setState(() {
       if (newValue) {
         this.selected = this._label;
-        _widgetsFilho = Text("TESTE");
+        if(this._temFilho())
+          _widgetsFilho = campoFilho;
+        
       } else {
-        _widgetsFilho = Text('');
-
+        _widgetsFilho = SizedBox.shrink();
         this.selected = '';
       }
     });
+  }
+
+  bool _temFilho(){
+    return this.campoFilho != null;
   }
 
   Widget _getCheckBox() {
@@ -58,7 +65,7 @@ class _CheckboxDinamicoState extends State<CheckboxDinamico> {
       children: <Widget>[
         Expanded(child: Text(this._label)),
         Checkbox(
-            value: this.selected != '',
+            value: this.selected == this._label,
             onChanged: (bool newValue) {
               _onChange(newValue);
             }),

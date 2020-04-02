@@ -22,7 +22,7 @@ class _CameraScreenState extends State {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Camera Flutter'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         child: SafeArea(
@@ -81,7 +81,7 @@ class _CameraScreenState extends State {
           children: [
             FloatingActionButton(
                 child: Icon(Icons.camera),
-                backgroundColor: Colors.blueGrey,
+                backgroundColor: Colors.blue,
                 onPressed: () {
                   _onCapturePressed(context);
                 })
