@@ -19,7 +19,7 @@ class _PreviewImageScreenState extends State<PreviewImageScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Preview'),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         child: Column(
@@ -37,11 +37,14 @@ class _PreviewImageScreenState extends State<PreviewImageScreen> {
                   onPressed: () {
                     getBytesFromFile().then((bytes) {
                       //Le a foto e usa o plugin de compartilhamento, poderia salvar no aparelho ou enviar na api
-                      Share.file('Share via:', basename(widget.imagePath),
-                          bytes.buffer.asUint8List(), 'image/png');
+                      Share.file(
+                          'Compartilhar via:',
+                          basename(widget.imagePath),
+                          bytes.buffer.asUint8List(),
+                          'image/png');
                     });
                   },
-                  child: Text('Share'),
+                  child: Text('Compartilhar'),
                 ),
               ),
             ),

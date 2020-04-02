@@ -21,7 +21,7 @@ class _CameraScreenState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Camera Flutter'),
+        title: const Text('Câmera Flutter'),
         backgroundColor: Colors.blue,
       ),
       body: Container(
@@ -36,10 +36,7 @@ class _CameraScreenState extends State {
               SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [                  
-                  _captureControlRowWidget(context),
-                  Spacer()
-                ],
+                children: [_captureControlRowWidget(context), Spacer()],
               ),
               SizedBox(height: 20.0)
             ],
@@ -115,8 +112,6 @@ class _CameraScreenState extends State {
     }
   }
 
-  
-
 //É chamado quando o widget é iniciado -> busca a câmera e chama o inicializador do controle
   @override
   void initState() {
@@ -129,7 +124,6 @@ class _CameraScreenState extends State {
           //Iniciar na camera traseira
           _initCameraController(cameras[0]).then((void v) {});
         });
-        
       } else {
         print("No camera available");
       }
@@ -140,14 +134,14 @@ class _CameraScreenState extends State {
   }
 
   //Future pq o método é assíncrono
-  Future _initCameraController(CameraDescription cameraDescription) async {    
+  Future _initCameraController(CameraDescription cameraDescription) async {
     if (controller != null) {
       await controller.dispose();
     }
 
     // Criando camercontroller (do pacote) com as opções passadas
     controller = CameraController(cameraDescription, ResolutionPreset.max);
-    
+
     // executa quando houve mudança
     controller.addListener(() {
       //verifica se o widget tá na árvore
@@ -166,5 +160,5 @@ class _CameraScreenState extends State {
     if (mounted) {
       setState(() {});
     }
-  }  
+  }
 }
